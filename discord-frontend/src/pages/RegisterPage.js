@@ -1,7 +1,8 @@
 import React from "react";
+import { AuthBox } from "../shared/components";
 
 const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return <AuthBox>RegisterPage</AuthBox>;
 };
 
 export default RegisterPage;
