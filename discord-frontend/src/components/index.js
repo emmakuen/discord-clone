@@ -4,6 +4,7 @@ import LoginPageInputs from "./login/LoginPageInputs";
 import LoginPageFooter from "./login/LoginPageFooter";
 import InputWithLabel from "./shared/InputWithLabel";
 import PrimaryButton from "./shared/PrimaryButton";
+import RedirectInfo from "./shared/RedirectInfo";
 
 export {
   AuthBox,
@@ -12,4 +13,5 @@ export {
   LoginPageFooter,
   InputWithLabel,
   PrimaryButton,
+  RedirectInfo,
 };
