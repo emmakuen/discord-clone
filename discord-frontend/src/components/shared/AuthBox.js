@@ -16,14 +16,15 @@ const AuthBox = (props) => {
     <BoxWrapper>
       <Box
         sx={{
-          width: 700,
+          width: 500,
           height: 400,
           background: "#36393f",
-          borderRadius: "5px",
+          borderRadius: "0.5rem",
           boxShadow: "0 0.2rem 1rem 0 rgba(0, 0, 0, 0.2)",
           display: "flex",
           flexDirection: "column",
           padding: "3.2rem",
+          gap: "2rem",
         }}
       >
         {props.children}
