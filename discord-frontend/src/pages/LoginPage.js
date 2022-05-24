@@ -9,6 +9,10 @@ import {
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [isFormValid, setIsFormValid] = React.useState(false);
+  const handleLogin = () => {
+    console.log(email, password);
+  };
   return (
     <AuthBox>
       <LoginPageHeader />
@@ -18,6 +22,7 @@ const LoginPage = () => {
         password={password}
         setPassword={setPassword}
       />
+      <LoginPageFooter isFormValid={isFormValid} handleLogin={handleLogin} />
     </AuthBox>
   );
 };
