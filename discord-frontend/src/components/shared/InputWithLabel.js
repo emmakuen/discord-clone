@@ -10,7 +10,7 @@ const Wrapper = styled("div")({
   width: "100%",
 });
 
-const Label = styled("p")({
+const Label = styled("label")({
   color: colors.gray,
   textTransform: "uppercase",
   fontWeight: 800,
@@ -37,7 +37,7 @@ const InputWithLabel = (props) => {
 
   return (
     <Wrapper>
-      <Label>{label}</Label>
+      <Label htmlFor={inputProps.id}>{label}</Label>
       <Input {...inputProps} onChange={handleChange} autoComplete="off" />
     </Wrapper>
   );

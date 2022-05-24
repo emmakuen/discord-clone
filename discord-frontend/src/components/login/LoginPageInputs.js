@@ -4,7 +4,7 @@ import { InputWithLabel } from "../index";
 const LoginPageInputs = ({ email, setEmail, password, setPassword }) => {
   const loginInputs = [
     {
-      id: 1,
+      id: "email",
       name: "email",
       label: "Email",
       type: "email",
@@ -13,7 +13,7 @@ const LoginPageInputs = ({ email, setEmail, password, setPassword }) => {
       placeholder: "",
     },
     {
-      id: 2,
+      id: "password",
       name: "password",
       label: "Password",
       type: "password",

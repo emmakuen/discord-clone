@@ -1,7 +1,7 @@
 import React from "react";
-import PrimaryButton from "../shared/PrimaryButton";
-import RedirectInfo from "../shared/RedirectInfo";
 import { useNavigate } from "react-router-dom";
+import { RedirectInfo, PrimaryButton } from "../index";
+import { Tooltip } from "@mui/material";
 
 const LoginPageFooter = ({ handleLogin, isFormValid }) => {
   const navigate = useNavigate();
@@ -9,6 +9,13 @@ const LoginPageFooter = ({ handleLogin, isFormValid }) => {
     navigate("/register");
   };
 
+  const getFormNotValidMessage = () => {
+    return "Insert a valid email address and a password that contains 6 - 20 characters.";
+  };
+
+  const getFormValidMessage = () => {
+    return "Press to login.";
+  };
   const buttonProps = {
     label: "Login",
     additionalStyles: {
@@ -26,11 +33,21 @@ const LoginPageFooter = ({ handleLogin, isFormValid }) => {
     },
     redirectHandler: redirectToRegisterPage,
   };
+
+  const tooltipProps = {
+    title: (
+      <p style={{ fontSize: "1.2rem" }}>
+        {!isFormValid ? getFormNotValidMessage() : getFormValidMessage()}
+      </p>
+    ),
+  };
   return (
     <>
-      <div>
-        <PrimaryButton {...buttonProps} />
-      </div>
+      <Tooltip {...tooltipProps}>
+        <div>
+          <PrimaryButton {...buttonProps} />
+        </div>
+      </Tooltip>
       <RedirectInfo {...redirectProps} />
     </>
   );
