@@ -1,5 +1,10 @@
 import React from "react";
-import { AuthBox, LoginPageHeader, LoginPageInputs } from "../components";
+import {
+  AuthBox,
+  LoginPageHeader,
+  LoginPageInputs,
+  LoginPageFooter,
+} from "../components";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");

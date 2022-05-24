@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
+import { colors } from "../../constants";
 
 const BoxWrapper = styled("div")({
   width: "100%",
@@ -8,7 +9,7 @@ const BoxWrapper = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: "#5865f2",
+  background: colors.primary,
 });
 
 const AuthBox = (props) => {
@@ -18,7 +19,7 @@ const AuthBox = (props) => {
         sx={{
           width: 500,
           height: 400,
-          background: "#36393f",
+          background: colors.darkGray,
           borderRadius: "0.5rem",
           boxShadow: "0 0.2rem 1rem 0 rgba(0, 0, 0, 0.2)",
           display: "flex",

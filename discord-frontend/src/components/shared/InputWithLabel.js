@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { colors } from "../../constants";
 
 const Wrapper = styled("div")({
   display: "flex",
@@ -10,7 +11,7 @@ const Wrapper = styled("div")({
 });
 
 const Label = styled("p")({
-  color: "#b9bbbe",
+  color: colors.gray,
   textTransform: "uppercase",
   fontWeight: 800,
   fontSize: "1.2rem",
@@ -20,13 +21,13 @@ const Input = styled("input")({
   flexGrow: 1,
   border: "none",
   borderRadius: "0.5rem",
-  background: "#202225",
+  background: colors.blackGray,
   margin: 0,
   fontSize: "1.6rem",
   padding: "1rem",
-  color: "#b9bbbe",
+  color: colors.gray,
   ":focus": {
-    outline: "1px solid #000",
+    outline: `1px solid ${colors.contrast}`,
   },
 });
 
