@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 const LoginPageHeader = () => {
   return (
     <>
-      <Typography variant="h5" sx={{ color: "#fff" }}>
+      <Typography variant="h5" sx={{ color: "#fff", fontWeight: 600 }}>
         Welcome back!
       </Typography>
       <Typography sx={{ color: "#b9bbbe" }}>

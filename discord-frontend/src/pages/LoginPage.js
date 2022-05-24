@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthBox, LoginPageHeader } from "../shared/components";
+import { AuthBox, LoginPageHeader } from "../components";
 
 const LoginPage = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthBox } from "../shared/components";
+import { AuthBox } from "../components";
 
 const RegisterPage = () => {
   return <AuthBox>RegisterPage</AuthBox>;
