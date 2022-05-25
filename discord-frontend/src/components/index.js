@@ -9,6 +9,10 @@ import BoxHeader from "./shared/BoxHeader";
 import RegisterPageInputs from "./register/RegisterPageInputs";
 import RegisterPageFooter from "./register/RegisterPageFooter";
 import AlertNotification from "./shared/AlertNotification";
+import Sidebar from "./dashboard/Sidebar";
+import FriendsSidebar from "./dashboard/FriendsSidebar";
+import Appbar from "./dashboard/Appbar";
+import Messenger from "./dashboard/Messenger";
 
 export {
   AuthBox,
@@ -22,4 +26,8 @@ export {
   RegisterPageInputs,
   RegisterPageFooter,
   AlertNotification,
+  Sidebar,
+  FriendsSidebar,
+  Appbar,
+  Messenger,
 };
