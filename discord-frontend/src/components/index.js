@@ -5,6 +5,9 @@ import LoginPageFooter from "./login/LoginPageFooter";
 import InputWithLabel from "./shared/InputWithLabel";
 import PrimaryButton from "./shared/PrimaryButton";
 import RedirectInfo from "./shared/RedirectInfo";
+import BoxHeader from "./shared/BoxHeader";
+import RegisterPageInputs from "./register/RegisterPageInputs";
+import RegisterPageFooter from "./register/RegisterPageFooter";
 
 export {
   AuthBox,
@@ -14,4 +17,7 @@ export {
   InputWithLabel,
   PrimaryButton,
   RedirectInfo,
+  BoxHeader,
+  RegisterPageInputs,
+  RegisterPageFooter,
 };

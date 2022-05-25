@@ -7,6 +7,9 @@ const RedirectText = styled("span")({
   color: colors.link,
   fontWeight: 600,
   cursor: "pointer",
+  ":hover": {
+    textDecoration: "underline",
+  },
 });
 
 const RedirectInfo = ({
@@ -15,6 +18,7 @@ const RedirectInfo = ({
   additionalStyles,
   redirectHandler,
 }) => {
+  const space = text && redirectHandler ? " " : "";
   return (
     <Typography
       sx={{
@@ -27,7 +31,7 @@ const RedirectInfo = ({
       {text}
       <RedirectText
         onClick={redirectHandler}
-      >{` ${redirectText}`}</RedirectText>
+      >{`${space}${redirectText}`}</RedirectText>
     </Typography>
   );
 };

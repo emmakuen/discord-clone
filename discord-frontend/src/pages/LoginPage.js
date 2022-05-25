@@ -5,7 +5,7 @@ import {
   LoginPageInputs,
   LoginPageFooter,
 } from "../components";
-import validateLoginForm from "../utils/validators";
+import { validateLoginForm } from "../utils/validators";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
@@ -15,7 +15,7 @@ const LoginPage = () => {
     console.log(email, password);
   };
   React.useEffect(() => {
-    setIsFormValid(validateLoginForm(email, password));
+    setIsFormValid(validateLoginForm({ email, password }));
   }, [email, password]);
   return (
     <AuthBox>
