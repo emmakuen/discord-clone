@@ -4,12 +4,12 @@ import { colors } from "../../constants";
 
 const MainContainer = styled("div")({
   height: "4.8rem",
-  borderBottom: `1px solid ${colors.contrast}`,
+  borderBottom: `1px solid ${colors.darkGray3}`,
   backgroundColor: colors.darkGray,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "0 1.6rem",
+  boxShadow: colors.boxShadow,
 });
 
 const Appbar = () => {

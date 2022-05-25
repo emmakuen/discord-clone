@@ -1,6 +1,7 @@
 const colors = Object.freeze({
   primary: "#5865f2",
   blackGray: "#202225",
+  darkGray3: "#2b2d32",
   darkGray2: "#2f3136",
   darkGray: "#36393f",
   graySecondary: "#72767d",
@@ -9,6 +10,8 @@ const colors = Object.freeze({
   contrast: "#000",
   link: "#00aff4",
   error: "#ec8385",
+  boxShadowElevation:
+    "0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05)",
 });
 
 export default colors;
