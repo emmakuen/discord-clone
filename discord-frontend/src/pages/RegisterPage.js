@@ -1,4 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { getActions } from "../store/actions/authActions";
 import {
   AuthBox,
   BoxHeader,
@@ -7,7 +10,8 @@ import {
 } from "../components";
 import { validateRegisterForm } from "../utils/validators";
 
-const RegisterPage = () => {
+const RegisterPage = ({ register }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -27,6 +31,12 @@ const RegisterPage = () => {
 
   const handleRegister = () => {
     console.log(email, username, password);
+    const userDetails = {
+      email,
+      username,
+      password,
+    };
+    register(userDetails, navigate);
   };
 
   const footerProps = {
@@ -42,4 +52,10 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(null, mapActionsToProps)(RegisterPage);
