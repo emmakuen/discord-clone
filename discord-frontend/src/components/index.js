@@ -8,6 +8,7 @@ import RedirectInfo from "./shared/RedirectInfo";
 import BoxHeader from "./shared/BoxHeader";
 import RegisterPageInputs from "./register/RegisterPageInputs";
 import RegisterPageFooter from "./register/RegisterPageFooter";
+import AlertNotification from "./shared/AlertNotification";
 
 export {
   AuthBox,
@@ -20,4 +21,5 @@ export {
   BoxHeader,
   RegisterPageInputs,
   RegisterPageFooter,
+  AlertNotification,
 };

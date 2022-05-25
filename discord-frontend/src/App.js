@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { AlertNotification } from "./components";
 import { RegisterPage, LoginPage, Dashboard, NotFound } from "./pages";
 
 import "./App.css";
@@ -21,6 +22,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
+      <AlertNotification />
     </>
   );
 }
