@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { InputWithLabel } from "../../components";
+import PrimaryButton from "../shared/PrimaryButton";
 
 const FriendAddDialog = ({
   isDialogOpen,
@@ -60,6 +61,17 @@ const FriendAddDialog = ({
           />
         </DialogContentText>
       </DialogContent>
+      <DialogActions>
+        <PrimaryButton
+          onClick={handleSendInvitation}
+          disabled={!isFormValid}
+          label="Send"
+          additionalStyles={{
+            margin: "1.6rem",
+            marginTop: 0,
+          }}
+        />
+      </DialogActions>
     </Dialog>
   );
 };
