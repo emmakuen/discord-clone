@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Tooltip, Typography } from "@mui/material";
 import Avatar from "../../shared/Avatar";
+import InvitationDecisionButtons from "./InvitationDecisionButtons";
 import { colors } from "../../../constants";
 
 const FriendInvitationListItem = ({
@@ -18,6 +19,11 @@ const FriendInvitationListItem = ({
   const handleRejectInvitation = () => {
     rejectFriendInvitation(id);
     setAreButtonsDisabled(true);
+  };
+  const buttonProps = {
+    disabled: areButtonsDisabled,
+    acceptFriendInvitation: handleAcceptInvitation,
+    rejectFriendInvitation: handleRejectInvitation,
   };
   return (
     <Tooltip title={<span style={{ fontSize: "1.2rem" }}>{email}</span>}>
@@ -43,6 +49,7 @@ const FriendInvitationListItem = ({
           >
             {username}
           </Typography>
+          <InvitationDecisionButtons {...buttonProps} />
         </Box>
       </div>
     </Tooltip>
