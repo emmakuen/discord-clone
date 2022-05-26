@@ -12,7 +12,7 @@ const LoginPageFooter = ({ handleLogin, isFormValid }) => {
   const getFormNotValidMessage = () =>
     "Insert a valid email address and a password that contains 6 - 20 characters.";
 
-  const getFormValidMessage = () => "Press to register.";
+  const getFormValidMessage = () => "Press to login.";
 
   const buttonProps = {
     label: "Login",
