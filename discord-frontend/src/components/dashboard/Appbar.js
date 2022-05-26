@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "@mui/system";
 import { colors } from "../../constants";
+import AppbarDropdownMenu from "./AppbarDropdownMenu";
 
 const MainContainer = styled("div")({
   height: "4.8rem",
@@ -13,7 +14,11 @@ const MainContainer = styled("div")({
 });
 
 const Appbar = () => {
-  return <MainContainer>Appbar</MainContainer>;
+  return (
+    <MainContainer>
+      <AppbarDropdownMenu />
+    </MainContainer>
+  );
 };
 
 export default Appbar;
