@@ -10,7 +10,7 @@ const AvatarPreview = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  fontSize: "2rem",
+  fontSize: "1.6rem",
   fontWeight: 600,
   color: colors.text,
 });
@@ -19,7 +19,7 @@ const Avatar = ({ username, large }) => {
   const additionalStyle = large ? { height: "8rem", width: "8rem" } : {};
   return (
     <AvatarPreview style={additionalStyle}>
-      {username?.substring(0, 2)}
+      {username?.substring(0, 2).toUpperCase()}
     </AvatarPreview>
   );
 };
