@@ -13,6 +13,7 @@ import Sidebar from "./dashboard/Sidebar";
 import FriendsSidebar from "./dashboard/FriendsSidebar";
 import Appbar from "./dashboard/Appbar";
 import Messenger from "./dashboard/Messenger";
+import Avatar from "./shared/Avatar";
 
 export {
   AuthBox,
@@ -30,4 +31,5 @@ export {
   FriendsSidebar,
   Appbar,
   Messenger,
+  Avatar,
 };

@@ -21,6 +21,7 @@ const FriendAddDialog = ({
 
   const handleSendInvitation = () => {
     // send friend request
+    sendFriendInvitation();
   };
 
   const handleCloseDialog = () => {
