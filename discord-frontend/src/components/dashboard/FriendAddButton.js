@@ -9,7 +9,7 @@ const additionalStyles = {
   fontWeight: 400,
 };
 
-const AddFriendButton = () => {
+const FriendAddButton = () => {
   const openAddFriendDialog = () => {};
 
   return (
@@ -23,4 +23,4 @@ const AddFriendButton = () => {
   );
 };
 
-export default AddFriendButton;
+export default FriendAddButton;
