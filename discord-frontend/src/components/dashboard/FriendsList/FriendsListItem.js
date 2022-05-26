@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
 import Avatar from "../../shared/Avatar";
+import OnlineIndicator from "./OnlineIndicator";
 import { colors } from "../../../constants";
 
 const FriendsListItem = ({ id, username, isOnline }) => {
@@ -31,6 +32,7 @@ const FriendsListItem = ({ id, username, isOnline }) => {
       >
         {username}
       </Typography>
+      {isOnline && <OnlineIndicator />}
     </Button>
   );
 };
