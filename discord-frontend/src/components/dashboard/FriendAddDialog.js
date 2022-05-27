@@ -10,18 +10,20 @@ import {
 } from "@mui/material";
 import { InputWithLabel } from "../../components";
 import PrimaryButton from "../shared/PrimaryButton";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/friendsActions";
 
 const FriendAddDialog = ({
   isDialogOpen,
   closeDialog,
   sendFriendInvitation = () => {},
 }) => {
-  const [email, setEmail] = React.useState();
-  const [isFormValid, setIsFormValid] = React.useState();
+  const [email, setEmail] = React.useState("");
+  const [isFormValid, setIsFormValid] = React.useState(false);
 
   const handleSendInvitation = () => {
     // send friend request
-    sendFriendInvitation();
+    sendFriendInvitation({ email });
   };
 
   const handleCloseDialog = () => {
@@ -48,8 +50,11 @@ const FriendAddDialog = ({
         </Typography>
       </DialogTitle>
       <DialogContent sx={{ marginTop: "-1rem" }}>
-        <DialogContentText>
-          <Typography sx={{ marginBottom: "1.6rem", fontSize: "1.4rem" }}>
+        <DialogContentText component={"div"}>
+          <Typography
+            component={"span"}
+            sx={{ marginBottom: "1.6rem", fontSize: "1.4rem" }}
+          >
             Enter email address of friend you would like to invite.
           </Typography>
           <InputWithLabel
@@ -77,4 +82,8 @@ const FriendAddDialog = ({
   );
 };
 
-export default FriendAddDialog;
+const mapActionsToProps = (dispatch) => {
+  return { ...getActions(dispatch) };
+};
+
+export default connect(null, mapActionsToProps)(FriendAddDialog);
