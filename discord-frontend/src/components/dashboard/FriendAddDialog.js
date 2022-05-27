@@ -21,14 +21,14 @@ const FriendAddDialog = ({
   const [email, setEmail] = React.useState("");
   const [isFormValid, setIsFormValid] = React.useState(false);
 
-  const handleSendInvitation = () => {
-    // send friend request
-    sendFriendInvitation({ targetEmail: email }, closeDialog);
-  };
-
   const handleCloseDialog = () => {
     closeDialog();
     setEmail("");
+  };
+
+  const handleSendInvitation = () => {
+    // send friend request
+    sendFriendInvitation({ targetEmail: email }, handleCloseDialog);
   };
 
   React.useEffect(() => {
