@@ -1,4 +1,5 @@
 const authSocket = require("./middleware/authSocket");
+const newConnectionHandler = require("./socket-handlers/newConnectionHandler");
 
 const registerSocketServer = (server) => {
   const io = require("socket.io")(server, {
@@ -15,9 +16,8 @@ const registerSocketServer = (server) => {
   io.on("connection", (socket) => {
     console.log("User connected...");
     console.log("Socket id: ", socket.id);
+    newConnectionHandler(socket, io);
   });
-
-  // TODO: create new connection handler
 };
 
 module.exports = {
