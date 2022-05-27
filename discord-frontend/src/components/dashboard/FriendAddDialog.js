@@ -23,7 +23,7 @@ const FriendAddDialog = ({
 
   const handleSendInvitation = () => {
     // send friend request
-    sendFriendInvitation({ email });
+    sendFriendInvitation({ targetEmail: email }, closeDialog);
   };
 
   const handleCloseDialog = () => {
