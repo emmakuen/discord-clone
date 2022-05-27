@@ -14,6 +14,7 @@ import FriendsSidebar from "./dashboard/FriendsSidebar";
 import Appbar from "./dashboard/Appbar";
 import Messenger from "./dashboard/Messenger";
 import Avatar from "./shared/Avatar";
+import Loader from "./shared/Loader";
 
 export {
   AuthBox,
@@ -32,4 +33,5 @@ export {
   Appbar,
   Messenger,
   Avatar,
+  Loader,
 };
