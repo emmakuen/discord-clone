@@ -1,4 +1,5 @@
 const User = require("../../models/User");
+const FriendInvitation = require("../../models/FriendInvitation");
 
 const postInvitation = async (req, res) => {
   const { targetEmail } = req.body;
@@ -24,7 +25,26 @@ const postInvitation = async (req, res) => {
       );
   }
 
-  // TODO: check if invitation already exists
+  // check if invitation already exists
+  const invitationAlreadyExists = FriendInvitation.findOne({
+    senderId: userId,
+    receiverId: targetUser.id,
+  });
+
+  if (invitationAlreadyExists) {
+    return res.status(409).send("Invitation has been already sent.");
+  }
+
+  // check invited user is already friend
+  const isAlreadyFriend = targetUser.friends.find(
+    (friendId) => friendId.toString() === userId.toString()
+  );
+
+  if (isAlreadyFriend) {
+    return res.status(409).send("Friend already added.");
+  }
+
+  // add invitation to database
 
   return res.send("Controller is working!");
 };
