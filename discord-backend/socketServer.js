@@ -1,3 +1,5 @@
+const authSocket = require("./middleware/authSocket");
+
 const registerSocketServer = (server) => {
   const io = require("socket.io")(server, {
     cors: {
@@ -6,10 +8,16 @@ const registerSocketServer = (server) => {
     },
   });
 
+  io.use((socket, next) => {
+    authSocket(socket, next);
+  });
+
   io.on("connection", (socket) => {
     console.log("User connected...");
     console.log("Socket id: ", socket.id);
   });
+
+  // TODO: create new connection handler
 };
 
 module.exports = {

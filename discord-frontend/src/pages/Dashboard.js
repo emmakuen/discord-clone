@@ -31,7 +31,7 @@ const Dashboard = ({ setUserDetails }) => {
     } else {
       setUserDetails(JSON.parse(userDetails));
       setIsAuthenticated(true);
-      connectWithSocketServer();
+      connectWithSocketServer(JSON.parse(userDetails));
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
