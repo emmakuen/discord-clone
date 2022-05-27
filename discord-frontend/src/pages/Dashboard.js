@@ -10,6 +10,7 @@ import {
 import { logout } from "../utils/auth";
 import { connect } from "react-redux";
 import { getActions } from "../store/actions/authActions";
+import { connectWithSocketServer } from "../api/socketConnection";
 
 const Wrapper = styled("div")({
   width: "100%",
@@ -30,6 +31,7 @@ const Dashboard = ({ setUserDetails }) => {
     } else {
       setUserDetails(JSON.parse(userDetails));
       setIsAuthenticated(true);
+      connectWithSocketServer();
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
