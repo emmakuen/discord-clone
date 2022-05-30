@@ -34,8 +34,8 @@ const FriendInvitationList = ({ pendingFriendsInvitations }) => {
     <MainContainer>
       {pendingFriendsInvitations.map((invitation) => (
         <FriendInvitationListItem
-          key={invitation.senderId._id}
-          id={invitation.senderId._id}
+          key={invitation._id}
+          id={invitation._id}
           username={invitation.senderId.username}
           email={invitation.senderId.email}
         />

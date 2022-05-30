@@ -3,6 +3,8 @@ import { Box, Tooltip, Typography } from "@mui/material";
 import Avatar from "../../shared/Avatar";
 import InvitationDecisionButtons from "./InvitationDecisionButtons";
 import { colors } from "../../../constants";
+import { connect } from "react-redux";
+import { getActions } from "../../../store/actions/friendsActions";
 
 const FriendInvitationListItem = ({
   id,
@@ -13,11 +15,11 @@ const FriendInvitationListItem = ({
 }) => {
   const [areButtonsDisabled, setAreButtonsDisabled] = React.useState(false);
   const handleAcceptInvitation = () => {
-    acceptFriendInvitation(id);
+    acceptFriendInvitation({ id });
     setAreButtonsDisabled(true);
   };
   const handleRejectInvitation = () => {
-    rejectFriendInvitation(id);
+    rejectFriendInvitation({ id });
     setAreButtonsDisabled(true);
   };
   const buttonProps = {
@@ -56,4 +58,10 @@ const FriendInvitationListItem = ({
   );
 };
 
-export default FriendInvitationListItem;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(null, mapActionsToProps)(FriendInvitationListItem);
