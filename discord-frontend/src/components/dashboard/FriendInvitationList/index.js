@@ -1,23 +1,24 @@
 import React from "react";
 import { styled } from "@mui/system";
 import FriendInvitationListItem from "./FriendInvitationListItem";
+import { connect } from "react-redux";
 
-const DUMMY_INVITATIONS = [
-  {
-    id: 1,
-    senderInfo: {
-      username: "Laura",
-      email: "dummy@laura.com",
-    },
-  },
-  {
-    id: 2,
-    senderInfo: {
-      username: "Jessy",
-      email: "dummy@jess.com",
-    },
-  },
-];
+// const DUMMY_INVITATIONS = [
+//   {
+//     id: 1,
+//     senderInfo: {
+//       username: "Laura",
+//       email: "dummy@laura.com",
+//     },
+//   },
+//   {
+//     id: 2,
+//     senderInfo: {
+//       username: "Jessy",
+//       email: "dummy@jess.com",
+//     },
+//   },
+// ];
 
 const MainContainer = styled("div")({
   width: "100%",
@@ -28,19 +29,23 @@ const MainContainer = styled("div")({
   padding: "0 0.8rem",
 });
 
-const FriendInvitationList = () => {
+const FriendInvitationList = ({ pendingFriendsInvitations }) => {
   return (
     <MainContainer>
-      {DUMMY_INVITATIONS.map((invitation) => (
+      {pendingFriendsInvitations.map((invitation) => (
         <FriendInvitationListItem
-          key={invitation.id}
-          id={invitation.id}
-          username={invitation.senderInfo.username}
-          email={invitation.senderInfo.email}
+          key={invitation.senderId._id}
+          id={invitation.senderId._id}
+          username={invitation.senderId.username}
+          email={invitation.senderId.email}
         />
       ))}
     </MainContainer>
   );
 };
 
-export default FriendInvitationList;
+const mapStoreStateToProps = ({ friends }) => {
+  return { ...friends };
+};
+
+export default connect(mapStoreStateToProps)(FriendInvitationList);
