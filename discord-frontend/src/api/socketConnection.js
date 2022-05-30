@@ -1,4 +1,5 @@
 import io from "socket.io-client";
+import { setPendingFriendsInvitations } from "../store/actions/friendsActions";
 
 let socket = null;
 
@@ -13,5 +14,13 @@ export const connectWithSocketServer = (userDetails) => {
   socket.on("connect", () => {
     console.log("Successfully connected with socket.io server.");
     console.log(socket.id);
+  });
+
+  //
+
+  socket.on("friend-invitations", (data) => {
+    const { pendingInvitations } = data;
+    console.log("friend invitations event data", pendingInvitations);
+    StorageEvent.dispatch(setPendingFriendsInvitations(pendingInvitations));
   });
 };

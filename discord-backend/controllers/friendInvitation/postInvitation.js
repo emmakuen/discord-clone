@@ -1,5 +1,6 @@
 const User = require("../../models/User");
 const FriendInvitation = require("../../models/FriendInvitation");
+const friendsUpdates = require("../../socket-handlers/updates/friends");
 
 const postInvitation = async (req, res) => {
   const { targetEmail } = req.body;
@@ -32,10 +33,7 @@ const postInvitation = async (req, res) => {
   });
 
   if (invitationAlreadyExists) {
-    console.log("sender", userId, "receiverId", targetUser.id);
-    console.log("invitation sent", invitationAlreadyExists);
-
-    return res.status(409).send("Invitation has been already sent.");
+    return res.status(409).send("Invitation already sent.");
   }
 
   // check invited user is already friend
@@ -47,13 +45,16 @@ const postInvitation = async (req, res) => {
     return res.status(409).send("Friend already added.");
   }
 
-  // TODO: create invitation to database
+  // create invitation in database
   const invitation = await FriendInvitation.create({
     senderId: userId,
     receiverId: targetUser.id,
   });
 
   // TODO: if invitation successfully created, display it for receiver if they're online
+
+  // send pending invitations for the user who received them
+  friendsUpdates.updatePendingInvitations(targetUser.id.toString());
 
   return res.status(201).send("Invitation sent!");
 };
