@@ -10,7 +10,7 @@ const postInvitation = async (req, res) => {
   if (email.toLowerCase() === targetEmail.toLowerCase()) {
     return res
       .status(409)
-      .send("Sorry. You cannot send an invitation to yourself.");
+      .send("Sorry. You can't send an invitation to yourself.");
   }
 
   const targetUser = await User.findOne({
@@ -26,12 +26,15 @@ const postInvitation = async (req, res) => {
   }
 
   // check if invitation already exists
-  const invitationAlreadyExists = FriendInvitation.findOne({
+  const invitationAlreadyExists = await FriendInvitation.findOne({
     senderId: userId,
     receiverId: targetUser.id,
   });
 
   if (invitationAlreadyExists) {
+    console.log("sender", userId, "receiverId", targetUser.id);
+    console.log("invitation sent", invitationAlreadyExists);
+
     return res.status(409).send("Invitation has been already sent.");
   }
 
@@ -44,9 +47,15 @@ const postInvitation = async (req, res) => {
     return res.status(409).send("Friend already added.");
   }
 
-  // add invitation to database
+  // TODO: create invitation to database
+  const invitation = await FriendInvitation.create({
+    senderId: userId,
+    receiverId: targetUser.id,
+  });
 
-  return res.send("Controller is working!");
+  // TODO: if invitation successfully created, display it for receiver if they're online
+
+  return res.status(201).send("Invitation sent!");
 };
 
 module.exports = postInvitation;
