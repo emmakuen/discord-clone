@@ -29,12 +29,16 @@ const MainContainer = styled("div")({
   // gap: "1rem",
 });
 
-const FriendsList = ({ friends }) => {
+const FriendsList = ({ friends, onlineUsers }) => {
   return (
     <MainContainer>
-      {friends.map((friend) => (
-        <FriendsListItem key={friend.id} {...friend} />
-      ))}
+      {friends.map((friend) => {
+        const isOnline = onlineUsers.find((user) => user.userId === friend.id);
+
+        return (
+          <FriendsListItem key={friend.id} {...friend} isOnline={isOnline} />
+        );
+      })}
     </MainContainer>
   );
 };
