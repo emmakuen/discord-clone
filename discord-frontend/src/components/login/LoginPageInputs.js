@@ -1,5 +1,6 @@
 import React from "react";
 import { InputWithLabel } from "../index";
+import { Box } from "@mui/system";
 
 const LoginPageInputs = ({ email, setEmail, password, setPassword }) => {
   const loginInputs = [
@@ -24,11 +25,14 @@ const LoginPageInputs = ({ email, setEmail, password, setPassword }) => {
   ];
 
   return (
-    <>
+    <Box
+      component="form"
+      sx={{ display: "flex", flexDirection: "column", gap: "2.4rem" }}
+    >
       {loginInputs.map((input) => (
         <InputWithLabel key={input.id} {...input} />
       ))}
-    </>
+    </Box>
   );
 };
 

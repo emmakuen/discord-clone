@@ -15,7 +15,8 @@ const LoginPage = ({ login }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isFormValid, setIsFormValid] = React.useState(false);
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     const userDetails = { email, password };
     login(userDetails, navigate);
   };

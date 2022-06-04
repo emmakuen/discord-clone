@@ -29,8 +29,8 @@ const RegisterPage = ({ register }) => {
     setIsFormValid(validateRegisterForm({ email, username, password }));
   }, [email, password, username]);
 
-  const handleRegister = () => {
-    console.log(email, username, password);
+  const handleRegister = (e) => {
+    e.preventDefault();
     const userDetails = {
       email,
       username,

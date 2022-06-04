@@ -1,5 +1,6 @@
 import React from "react";
 import { InputWithLabel } from "../index";
+import { Box } from "@mui/system";
 
 const RegisterPageInputs = (props) => {
   const { email, setEmail, username, setUsername, password, setPassword } =
@@ -36,11 +37,14 @@ const RegisterPageInputs = (props) => {
   ];
 
   return (
-    <>
+    <Box
+      component="form"
+      sx={{ display: "flex", flexDirection: "column", gap: "2.4rem" }}
+    >
       {registerInputs.map((input) => (
         <InputWithLabel key={input.id} {...input} />
       ))}
-    </>
+    </Box>
   );
 };
 
