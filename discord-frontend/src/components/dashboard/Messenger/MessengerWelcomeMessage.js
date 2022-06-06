@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/system";
 import { Typography } from "@mui/material";
-import { colors } from "../../constants";
+import { colors } from "../../../constants";
 
 const Wrapper = styled("div")({
   flexGrow: 1,

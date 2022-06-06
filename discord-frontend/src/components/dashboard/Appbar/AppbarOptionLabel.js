@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import { colors } from "../../constants";
+import { colors } from "../../../constants";
 import { connect } from "react-redux";
 
 const AppbarOptionLabel = ({ username }) => {

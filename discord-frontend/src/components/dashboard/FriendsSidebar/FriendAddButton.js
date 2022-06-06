@@ -1,6 +1,6 @@
 import React from "react";
-import { PrimaryButton } from "../index";
-import { colors } from "../../constants";
+import { PrimaryButton } from "../../index";
+import { colors } from "../../../constants";
 import FriendAddDialog from "./FriendAddDialog";
 
 const additionalStyles = {

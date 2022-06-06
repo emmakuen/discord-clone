@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@mui/system";
-import { colors } from "../../constants";
+import { colors } from "../../../constants";
 import { connect } from "react-redux";
 import MessengerWelcomeMessage from "./MessengerWelcomeMessage";
 import MessengerContent from "./MessengerContent";

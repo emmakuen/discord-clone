@@ -1,5 +1,5 @@
 import React from "react";
-import { emailPattern } from "../../utils/validators";
+import { emailPattern } from "../../../utils/validators";
 import {
   Dialog,
   DialogActions,
@@ -8,10 +8,10 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
-import { InputWithLabel } from "../../components";
-import PrimaryButton from "../shared/PrimaryButton";
+import { InputWithLabel } from "../../../components";
+import PrimaryButton from "../../shared/PrimaryButton";
 import { connect } from "react-redux";
-import { getActions } from "../../store/actions/friendsActions";
+import { getActions } from "../../../store/actions/friendsActions";
 
 const FriendAddDialog = ({
   isDialogOpen,

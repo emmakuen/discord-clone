@@ -1,8 +1,8 @@
 import * as React from "react";
 import { IconButton, Menu, MenuItem } from "@mui/material";
-import { colors } from "../../constants";
+import { colors } from "../../../constants";
 import { MoreVert } from "@mui/icons-material";
-import { logout } from "../../utils/auth";
+import { logout } from "../../../utils/auth";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
