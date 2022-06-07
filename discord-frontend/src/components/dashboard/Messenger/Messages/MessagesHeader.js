@@ -11,6 +11,7 @@ const MainContainer = styled("div")({
   justifyItems: "flex-start",
   rowGap: "1.2rem",
   columnGap: "1.2rem",
+  marginBottom: "3.2rem",
 });
 
 const MessagesHeader = ({ username = "" }) => {

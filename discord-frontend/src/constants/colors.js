@@ -8,6 +8,7 @@ const colors = Object.freeze({
   graySecondary2: "#8e9297",
   graySecondary: "#72767d",
   gray: "#b9bbbe",
+  lightGray: "#dcddde",
   text: "#fff",
   contrast: "#000",
   link: "#00aff4",
