@@ -1,10 +1,12 @@
 import React from "react";
 import { styled } from "@mui/system";
-import MessengerMessages from "./MessengerMessages";
+import Messages from "./Messages";
 import MessengerInput from "./MessengerInput";
 
 const Wrapper = styled("div")({
-  flexGrow: 1,
+  display: "grid",
+  gridTemplateRows: "1fr auto",
+  padding: "2rem",
 });
 
 const MessengerContent = ({ chosenChatDetails }) => {
@@ -14,7 +16,7 @@ const MessengerContent = ({ chosenChatDetails }) => {
 
   return (
     <Wrapper>
-      <MessengerMessages />
+      <Messages />
       <MessengerInput />
     </Wrapper>
   );

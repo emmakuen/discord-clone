@@ -15,10 +15,10 @@ const AvatarPreview = styled("div")({
   color: colors.text,
 });
 
-const Avatar = ({ username, large }) => {
-  const additionalStyle = large ? { height: "8rem", width: "8rem" } : {};
+const Avatar = ({ username, large, additionalStyles }) => {
+  const style = large ? { height: "8rem", width: "8rem" } : {};
   return (
-    <AvatarPreview style={additionalStyle}>
+    <AvatarPreview style={{ ...style, ...additionalStyles }}>
       {username?.substring(0, 2).toUpperCase()}
     </AvatarPreview>
   );

@@ -8,7 +8,7 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
-import { InputWithLabel } from "../../../components";
+import { InputWithLabel } from "../..";
 import PrimaryButton from "../../shared/PrimaryButton";
 import { connect } from "react-redux";
 import { getActions } from "../../../store/actions/friendsActions";
