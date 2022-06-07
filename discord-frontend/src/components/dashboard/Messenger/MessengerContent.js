@@ -7,6 +7,7 @@ const Wrapper = styled("div")({
   display: "grid",
   gridTemplateRows: "1fr auto",
   padding: "2rem",
+  width: "100%",
 });
 
 const MessengerContent = ({ chosenChatDetails }) => {
