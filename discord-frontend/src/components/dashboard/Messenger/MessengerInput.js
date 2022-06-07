@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/system";
 import { connect } from "react-redux";
 import { colors } from "../../../constants";
+import { sendDirectMessage } from "../../../api/socketConnection";
 
 const MainContainer = styled("div")({
   width: "100%",
@@ -25,8 +26,10 @@ const Input = styled("input")({
 const MessengerInput = ({ chosenChatDetails }) => {
   const [message, setMessage] = React.useState("");
   const handleSendMessage = () => {
-    console.log(message);
-    setMessage("");
+    if (message.length > 0) {
+      sendDirectMessage({ receiverId: chosenChatDetails.id, content: message });
+      setMessage("");
+    }
   };
   const placeholder = `Write message to ${chosenChatDetails?.username}`;
   const onChange = (e) => setMessage(e.target.value);
