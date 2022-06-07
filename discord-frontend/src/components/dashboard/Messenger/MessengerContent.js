@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/system";
 import Messages from "./Messages";
 import MessengerInput from "./MessengerInput";
+import { getDirectChatHistory } from "../../../api/socketConnection";
 
 const Wrapper = styled("div")({
   display: "grid",
@@ -12,7 +13,7 @@ const Wrapper = styled("div")({
 
 const MessengerContent = ({ chosenChatDetails }) => {
   React.useEffect(() => {
-    // TODO: fetch chat history with specific user id
+    getDirectChatHistory({ receiverId: chosenChatDetails?.id });
   }, [chosenChatDetails]);
 
   return (
