@@ -4,6 +4,7 @@ import {
   setFriends,
   setOnlineUsers,
 } from "../store/actions/friendsActions";
+import { updateDirectChatHistoryIfActive } from "../utils/chat";
 import store from "../store/store";
 
 let socket = null;
@@ -39,7 +40,7 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("direct-chat-history", (data) => {
-    console.log("Direct chat history data: ", data);
+    updateDirectChatHistoryIfActive(data);
   });
 };
 
