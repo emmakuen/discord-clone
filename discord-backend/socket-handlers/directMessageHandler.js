@@ -12,7 +12,7 @@ const directMessageHandler = async (socket, data) => {
     // create a message
     const message = await Message.create({
       content: content,
-      authorId: userId,
+      author: userId,
       date: new Date(),
       type: "DIRECT",
     });
@@ -26,7 +26,7 @@ const directMessageHandler = async (socket, data) => {
       conversation.messages.push(message.id);
       await conversation.save();
 
-      // TODO: if participants are online, perform realtime update on their conversation
+      // if participants are online, perform realtime update on their conversation
       chatUpdates.updateChatHistory(conversation.id.toString());
     } else {
       // create new conversation if none exists
@@ -35,7 +35,7 @@ const directMessageHandler = async (socket, data) => {
         participants: [userId, receiverId],
       });
 
-      // TODO: perform realtime update
+      // perform realtime update
       chatUpdates.updateChatHistory(conversation.id.toString());
     }
   } catch (err) {
