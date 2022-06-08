@@ -19,7 +19,6 @@ export const connectWithSocketServer = (userDetails) => {
 
   socket.on("connect", () => {
     console.log("Successfully connected with socket.io server.");
-    console.log(socket.id);
   });
 
   //

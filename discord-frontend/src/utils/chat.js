@@ -3,7 +3,6 @@ import { setMessages } from "../store/actions/chatActions";
 
 export const updateDirectChatHistoryIfActive = (data) => {
   const { participants, messages } = data;
-  console.log(participants, messages);
 
   // find participants of chosen conversation
   const receiverId = store.getState().chat.chosenChatDetails?.id;

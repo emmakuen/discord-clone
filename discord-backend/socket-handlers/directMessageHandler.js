@@ -1,4 +1,3 @@
-const serverStore = require("../serverStore");
 const Message = require("../models/Message");
 const Conversation = require("../models/Conversation");
 const chatUpdates = require("./updates/chat");
