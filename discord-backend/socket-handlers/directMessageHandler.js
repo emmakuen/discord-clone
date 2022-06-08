@@ -36,7 +36,7 @@ const directMessageHandler = async (socket, data) => {
       });
 
       // perform realtime update
-      chatUpdates.updateChatHistory(conversation.id.toString());
+      chatUpdates.updateChatHistory(newConversation.id.toString());
     }
   } catch (err) {
     console.log(err);
