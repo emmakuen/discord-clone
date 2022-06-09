@@ -6,6 +6,7 @@ import {
   Messenger,
   Appbar,
   Loader,
+  Room,
 } from "../components";
 import { logout } from "../utils/auth";
 import { connect } from "react-redux";
@@ -20,7 +21,7 @@ const Wrapper = styled("div")({
   gridTemplateRows: "auto 1fr",
 });
 
-const Dashboard = ({ setUserDetails }) => {
+const Dashboard = ({ setUserDetails, isUserInRoom }) => {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
   React.useEffect(() => {
@@ -47,12 +48,19 @@ const Dashboard = ({ setUserDetails }) => {
       <FriendsSidebar />
       <Appbar />
       <Messenger />
+      {isUserInRoom && <Room />}
     </Wrapper>
   );
+};
+
+const mapStoreStateToProps = ({ room }) => {
+  return {
+    ...room,
+  };
 };
 
 const mapActionsToProps = (dispatch) => {
   return { ...getActions(dispatch) };
 };
 
-export default connect(null, mapActionsToProps)(Dashboard);
+export default connect(mapStoreStateToProps, mapActionsToProps)(Dashboard);

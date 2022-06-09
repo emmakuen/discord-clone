@@ -17,6 +17,7 @@ import Avatar from "./shared/Avatar";
 import Loader from "./shared/Loader";
 import HalfRoundedIconButton from "./shared/HalfRoundedIconButton";
 import RoundedIconButton from "./shared/RoundedIconButton";
+import Room from "./dashboard/Room";
 
 export {
   AuthBox,
@@ -38,4 +39,5 @@ export {
   Loader,
   RoundedIconButton,
   HalfRoundedIconButton,
+  Room,
 };
