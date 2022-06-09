@@ -1,8 +1,9 @@
 import React from "react";
 import { styled } from "@mui/system";
 import { colors } from "../../constants";
-import { HalfRoundedIconButton, RoundedIconButton } from "../index";
 import { Groups, Add } from "@mui/icons-material";
+import { HalfRoundedIconButton, RoundedIconButton } from "../index";
+import * as roomHandler from "../../api/socketRoomHandler";
 
 const MainContainer = styled("div")({
   padding: "1.2rem",
@@ -23,7 +24,7 @@ const Separator = styled("div")({
 
 const Sidebar = () => {
   const createNewRoomHandler = () => {
-    // TODO: create a room and send this info to the server
+    roomHandler.createNewRoom();
   };
 
   return (
