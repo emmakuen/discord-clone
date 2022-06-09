@@ -1,9 +1,12 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { Groups } from "@mui/icons-material";
 import { colors } from "../../constants";
 
-const SidebarTopButton = () => {
+const HalfRoundedIconButton = ({
+  children,
+  additionalStyles,
+  ...otherProps
+}) => {
   return (
     <Button
       style={{
@@ -13,11 +16,13 @@ const SidebarTopButton = () => {
         minWidth: 0,
         color: colors.text,
         backgroundColor: colors.primary,
+        ...additionalStyles,
       }}
+      {...otherProps}
     >
-      <Groups style={{ fontSize: "2.4rem" }} />
+      {children}
     </Button>
   );
 };
 
-export default SidebarTopButton;
+export default HalfRoundedIconButton;

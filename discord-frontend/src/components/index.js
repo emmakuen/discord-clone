@@ -15,6 +15,8 @@ import Appbar from "./dashboard/Appbar";
 import Messenger from "./dashboard/Messenger";
 import Avatar from "./shared/Avatar";
 import Loader from "./shared/Loader";
+import HalfRoundedIconButton from "./shared/HalfRoundedIconButton";
+import RoundedIconButton from "./shared/RoundedIconButton";
 
 export {
   AuthBox,
@@ -34,4 +36,6 @@ export {
   Messenger,
   Avatar,
   Loader,
+  RoundedIconButton,
+  HalfRoundedIconButton,
 };
