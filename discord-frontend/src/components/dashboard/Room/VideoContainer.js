@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "@mui/system";
 
 const MainContainer = styled("div")({
-  height: "85%",
+  flexGrow: 1,
   width: "100%",
   display: "flex",
   flexWrap: "wrap",
