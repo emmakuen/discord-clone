@@ -5,6 +5,7 @@ import {
   setOnlineUsers,
 } from "../store/actions/friendsActions";
 import { updateDirectChatHistoryIfActive } from "../utils/chat";
+import * as roomHandler from "./socketRoomHandler";
 import store from "../store/store";
 
 let socket = null;
@@ -43,7 +44,7 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("room-create", (data) => {
-    console.log("room data: ", data);
+    roomHandler.updateRoomDetails(data);
   });
 };
 
