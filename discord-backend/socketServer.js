@@ -3,6 +3,7 @@ const newConnectionHandler = require("./socket-handlers/newConnectionHandler");
 const disconnectionHandler = require("./socket-handlers/disconnectionHandler");
 const directMessageHandler = require("./socket-handlers/directMessageHandler");
 const directChatHistoryHandler = require("./socket-handlers/directChatHistoryHandler");
+const roomCreationHandler = require("./socket-handlers/roomCreationHandler");
 const serverStore = require("./serverStore");
 
 const registerSocketServer = (server) => {
@@ -40,6 +41,10 @@ const registerSocketServer = (server) => {
 
     socket.on("disconnect", () => {
       disconnectionHandler(socket);
+    });
+
+    socket.on("room-create", () => {
+      roomCreationHandler(socket);
     });
   });
 
