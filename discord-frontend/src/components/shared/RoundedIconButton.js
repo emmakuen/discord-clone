@@ -2,7 +2,12 @@ import React from "react";
 import { Button } from "@mui/material";
 import { colors } from "../../constants";
 
-const RoundedIconButton = ({ children, additionalStyles, ...otherProps }) => {
+const RoundedIconButton = ({
+  children,
+  additionalStyles,
+  additionalHoverStyles,
+  ...otherProps
+}) => {
   return (
     <Button
       sx={{
@@ -16,6 +21,7 @@ const RoundedIconButton = ({ children, additionalStyles, ...otherProps }) => {
           borderRadius: "1.6rem",
           backgroundColor: colors.secondary,
           color: colors.text,
+          ...additionalHoverStyles,
         },
         ...additionalStyles,
       }}

@@ -2,7 +2,9 @@ import React from "react";
 import { styled } from "@mui/system";
 import { colors } from "../../constants";
 import { Groups, Add } from "@mui/icons-material";
+import { connect } from "react-redux";
 import { HalfRoundedIconButton, RoundedIconButton } from "../index";
+import SidebarActiveRoomButton from "./SidebarActiveRoomButton";
 import * as roomHandler from "../../api/socketRoomHandler";
 
 const MainContainer = styled("div")({
@@ -22,7 +24,17 @@ const Separator = styled("div")({
   borderRadius: "1px",
 });
 
-const Sidebar = () => {
+const renderRoomButtons = (activeRooms, isUserInRoom) => {
+  return activeRooms.map((room) => (
+    <SidebarActiveRoomButton
+      key={room.roomId}
+      {...room}
+      isUserInRoom={isUserInRoom}
+    />
+  ));
+};
+
+const Sidebar = ({ activeRooms, isUserInRoom }) => {
   const createNewRoomHandler = () => {
     roomHandler.createNewRoom();
   };
@@ -41,8 +53,16 @@ const Sidebar = () => {
           }}
         />
       </RoundedIconButton>
+      <Separator />
+      {renderRoomButtons(activeRooms, isUserInRoom)}
     </MainContainer>
   );
 };
 
-export default Sidebar;
+const mapStoreStateToProps = ({ room }) => {
+  return {
+    ...room,
+  };
+};
+
+export default connect(mapStoreStateToProps)(Sidebar);

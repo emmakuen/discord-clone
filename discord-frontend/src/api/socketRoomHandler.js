@@ -20,6 +20,16 @@ export const updateRoomDetails = (data) => {
 export const updateActiveRooms = (data) => {
   const { activeRooms } = data;
 
-  console.log("active room update: ", activeRooms);
-  // store.dispatch(setActiveRooms(activeRooms));
+  // render room if creator is friend of the user
+  const friends = store.getState().friends.friends;
+  const rooms = [];
+  activeRooms.forEach((room) => {
+    friends.forEach((friend) => {
+      if (friend.id === room.roomCreator.userId) {
+        rooms.push({ ...room, creatorUsername: friend.username });
+      }
+    });
+  });
+
+  store.dispatch(setActiveRooms(rooms));
 };
