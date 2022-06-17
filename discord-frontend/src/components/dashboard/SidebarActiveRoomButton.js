@@ -2,6 +2,7 @@ import React from "react";
 import { Tooltip } from "@mui/material";
 import { Avatar, RoundedIconButton } from "../";
 import { colors } from "../../constants";
+import * as roomHandler from "../../api/socketRoomHandler";
 
 const SidebarActiveRoomButton = ({
   creatorUsername,
@@ -10,7 +11,7 @@ const SidebarActiveRoomButton = ({
   roomId,
 }) => {
   const joinActiveRoom = () => {
-    // join the room
+    roomHandler.joinRoom(roomId);
   };
 
   const isButtonDisabled = participants.length > 3;
