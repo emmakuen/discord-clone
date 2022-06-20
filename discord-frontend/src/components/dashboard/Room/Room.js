@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "@mui/system";
 import { colors } from "../../../constants";
 import RoomButtons from "./RoomButtons/RoomButtons";
-import VideoContainer from "./VideoContainer";
+import VideosContainer from "./VideosContainer";
 
 const MainContainer = styled("div")({
   position: "absolute",
@@ -34,7 +34,7 @@ const Room = () => {
     <MainContainer
       style={isRoomMinimized ? minimizedRoomStyle : fullScreenRoomStyle}
     >
-      <VideoContainer />
+      <VideosContainer />
       <RoomButtons
         isRoomMinimized={isRoomMinimized}
         handleRoomResize={resizeRoom}
