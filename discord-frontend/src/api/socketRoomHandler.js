@@ -13,7 +13,8 @@ export const createNewRoom = () => {
     socketConnection.createNewRoom();
   };
 
-  webRTCHandler.getLocalStreamPreview(false, onLocalStreamCreation);
+  const isAudioOnly = store.getState().room.audioOnly;
+  webRTCHandler.getLocalStreamPreview(isAudioOnly, onLocalStreamCreation);
 };
 
 export const updateRoomDetails = (data) => {
@@ -45,8 +46,8 @@ export const joinRoom = (roomId) => {
     store.dispatch(setOpenRoom(false, true));
     socketConnection.joinRoom({ roomId });
   };
-
-  webRTCHandler.getLocalStreamPreview(false, onLocalStreamCreation);
+  const isAudioOnly = store.getState().room.audioOnly;
+  webRTCHandler.getLocalStreamPreview(isAudioOnly, onLocalStreamCreation);
 };
 
 export const leaveRoom = () => {
