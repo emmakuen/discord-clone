@@ -6,8 +6,8 @@ const roomLeaveHandler = (socket, data) => {
 
   const activeRoom = serverStore.getActiveRoom(roomId);
   if (activeRoom) {
+    console.log(activeRoom, roomId, socket.id);
     serverStore.leaveActiveRoom(roomId, socket.id);
-
     roomsUpdates.updateRooms();
   }
 };

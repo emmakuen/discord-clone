@@ -77,22 +77,20 @@ const getActiveRoom = (roomId) => {
   return { ...activeRoom };
 };
 
-const joinActiveRoom = (activeRoom, newParticipant) => {
+const joinActiveRoom = (roomId, newParticipant) => {
+  const activeRoom = activeRooms.find(
+    (activeRoom) => activeRoom.roomId === roomId
+  );
+
+  activeRooms = activeRooms.filter(
+    (activeRoom) => activeRoom.roomId !== roomId
+  );
   const updatedRoom = {
     ...activeRoom,
     participants: [...activeRoom.participants, newParticipant],
   };
 
-  const index = activeRooms.findIndex(
-    (room) => room.roomId === activeRoom.roomId
-  );
-
-  activeRooms = [
-    ...activeRooms.slice(0, index),
-    updatedRoom,
-    ...activeRooms.slice(index + 1),
-  ];
-
+  activeRooms.push(updatedRoom);
   console.log(activeRooms);
 };
 
@@ -112,7 +110,7 @@ const leaveActiveRoom = (roomId, participantSocketId) => {
     );
 
     if (activeRoomCopy.participants.length > 0) {
-      activeRooms = activeRooms.push(activeRoomCopy);
+      activeRooms.push(activeRoomCopy);
     }
   }
 };

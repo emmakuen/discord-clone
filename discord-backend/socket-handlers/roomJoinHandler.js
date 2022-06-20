@@ -12,7 +12,7 @@ const roomJoinHandler = (socket, data) => {
   };
 
   const activeRoom = serverStore.getActiveRoom(roomId);
-  serverStore.joinActiveRoom(activeRoom, newParticipant);
+  serverStore.joinActiveRoom(roomId, newParticipant);
   roomsUpdates.updateRooms();
 };
 
