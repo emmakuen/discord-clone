@@ -6,6 +6,7 @@ import {
 } from "../store/actions/friendsActions";
 import { updateDirectChatHistoryIfActive } from "../utils/chat";
 import * as roomHandler from "./socketRoomHandler";
+import * as webRTCHandler from "./webRTCHandler";
 import store from "../store/store";
 
 let socket = null;
@@ -52,8 +53,21 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("connection-prepare", (data) => {
-    // roomHandler.connectionPrepare(data)
-    console.log("Preparing for connection...", data);
+    const { connectedUserSocketId } = data;
+    webRTCHandler.prepareNewPeerConnection(connectedUserSocketId, false);
+
+    socket.emit("connection-init", {
+      connectedUserSocketId,
+    });
+  });
+
+  socket.on("connection-init", (data) => {
+    const { connectedUserSocketId } = data;
+    webRTCHandler.prepareNewPeerConnection(connectedUserSocketId, true);
+  });
+
+  socket.on("connection-signal", (data) => {
+    webRTCHandler.handleSignalingData(data);
   });
 };
 
@@ -76,4 +90,8 @@ export const joinRoom = (data) => {
 
 export const leaveRoom = (data) => {
   socket.emit("room-leave", data);
+};
+
+export const signalPeerData = (data) => {
+  socket.emit("connection-signal", data);
 };

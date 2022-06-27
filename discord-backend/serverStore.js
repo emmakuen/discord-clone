@@ -21,7 +21,7 @@ const addNewConnectedUser = ({ socketId, userId }) => {
 const removeConnectedUser = (socketId) => {
   if (connectedUsers.has(socketId)) {
     connectedUsers.delete(socketId);
-    console.log("New connected users: ", connectedUsers);
+    console.log(socketId, "user left the app");
   }
 };
 
