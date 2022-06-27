@@ -96,3 +96,31 @@ const addNewRemoteStream = (remoteStream) => {
 
   store.dispatch(setRemoteStreams(updatedRemoteStreams));
 };
+
+export const closeAllConnections = () => {
+  Object.entries(peers).forEach((mappedObject) => {
+    const connectedUserSocketId = mappedObject[0];
+    if (peers[connectedUserSocketId]) {
+      peers[connectedUserSocketId].destroy();
+      delete peers[connectedUserSocketId];
+    }
+  });
+};
+
+export const handleParticipantLeftRoom = (data) => {
+  const { connectedUserSocketId } = data;
+  console.log(peers, connectedUserSocketId)
+  if (peers[connectedUserSocketId]) {
+    peers[connectedUserSocketId].destroy();
+    delete peers[connectedUserSocketId];
+  }
+
+  const remoteStreams = store.getState().room.remoteStreams;
+
+  const updatedRemoteStreams = remoteStreams.filter(
+    (remoteStream) =>
+      remoteStream.connectedUserSocketId !== connectedUserSocketId
+  );
+
+  store.dispatch(setRemoteStreams(updatedRemoteStreams));
+};
