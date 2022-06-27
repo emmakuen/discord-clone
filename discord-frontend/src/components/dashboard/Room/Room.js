@@ -24,7 +24,7 @@ const minimizedRoomStyle = {
   bottom: 0,
   right: 0,
   width: "30%",
-  height: "40vh",
+  minWidth: "40vh",
 };
 
 const Room = () => {
