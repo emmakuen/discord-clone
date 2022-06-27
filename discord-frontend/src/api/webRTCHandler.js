@@ -109,7 +109,7 @@ export const closeAllConnections = () => {
 
 export const handleParticipantLeftRoom = (data) => {
   const { connectedUserSocketId } = data;
-  console.log(peers, connectedUserSocketId)
+  console.log(peers, connectedUserSocketId);
   if (peers[connectedUserSocketId]) {
     peers[connectedUserSocketId].destroy();
     delete peers[connectedUserSocketId];
