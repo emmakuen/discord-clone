@@ -7,6 +7,7 @@ import RoomMicButton from "./RoomMicButton";
 import RoomScreenShareButton from "./RoomScreenShareButton";
 import RoomResizeButton from "./RoomResizeButton";
 import { connect } from "react-redux";
+import { getActions } from "../../../../store/actions/roomActions";
 
 const MainContainer = styled("div")({
   width: "100%",
@@ -22,10 +23,11 @@ const MainContainer = styled("div")({
 
 const iconStyle = { height: "2.2rem", width: "2.2rem", color: colors.text };
 
-const RoomButtons = ({ isRoomMinimized, handleRoomResize, localStream }) => {
+const RoomButtons = (props) => {
+  const { isRoomMinimized, handleRoomResize, localStream } = props;
   return (
     <MainContainer>
-      <RoomScreenShareButton iconStyle={iconStyle} />
+      <RoomScreenShareButton iconStyle={iconStyle} {...props} />
       <RoomMicButton iconStyle={iconStyle} localStream={localStream} />
       <RoomCameraButton iconStyle={iconStyle} localStream={localStream} />
       <RoomCloseButton iconStyle={{ ...iconStyle, color: colors.error }} />
@@ -44,4 +46,10 @@ const mapStoreStateToProps = ({ room }) => {
   };
 };
 
-export default connect(mapStoreStateToProps)(RoomButtons);
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(mapStoreStateToProps, mapActionsToProps)(RoomButtons);
