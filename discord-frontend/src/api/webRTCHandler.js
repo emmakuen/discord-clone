@@ -124,3 +124,23 @@ export const handleParticipantLeftRoom = (data) => {
 
   store.dispatch(setRemoteStreams(updatedRemoteStreams));
 };
+
+export const switchOutgoingTracks = (stream) => {
+  for (let socketId in peers) {
+    for (let index in peers[socketId].streams[0].getTracks()) {
+      for (let index2 in stream.getTracks()) {
+        if (
+          peers[socketId].streams[0].getTracks()[index].kind ===
+          stream.getTracks()[index2].kind
+        ) {
+          peers[socketId].replaceTrack(
+            peers[socketId].streams[0].getTracks()[index],
+            stream.getTracks()[index2],
+            peers[socketId].streams[0]
+          );
+          break;
+        }
+      }
+    }
+  }
+};

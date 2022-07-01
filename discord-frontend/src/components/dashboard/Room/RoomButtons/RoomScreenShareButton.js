@@ -1,6 +1,7 @@
 import React from "react";
 import { IconButton } from "@mui/material";
 import { ScreenShare, StopScreenShare } from "@mui/icons-material";
+import * as webRTCHandler from "../../../../api/webRTCHandler";
 
 const screenSharingConstraints = {
   audio: false,
@@ -30,10 +31,10 @@ const RoomScreenShareButton = ({
 
       if (stream) {
         setScreenSharingStream(stream);
-        // TODO: webRTCHandler switch outgoing video tracks
+        webRTCHandler.switchOutgoingTracks(stream);
       }
     } else {
-      // TODO: webRTCHandler switch outgoing tracks
+      webRTCHandler.switchOutgoingTracks(localStream);
       screenSharingStream.getTrack().forEach((track) => track.stop());
       setScreenSharingStream(null);
     }
