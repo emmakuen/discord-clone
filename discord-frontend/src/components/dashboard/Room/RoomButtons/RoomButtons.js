@@ -24,12 +24,21 @@ const MainContainer = styled("div")({
 const iconStyle = { height: "2.2rem", width: "2.2rem", color: colors.text };
 
 const RoomButtons = (props) => {
-  const { isRoomMinimized, handleRoomResize, localStream } = props;
+  const {
+    isRoomMinimized,
+    handleRoomResize,
+    localStream,
+    isJoinedWithAudioOnly,
+  } = props;
   return (
     <MainContainer>
-      <RoomScreenShareButton iconStyle={iconStyle} {...props} />
+      {!isJoinedWithAudioOnly && (
+        <RoomScreenShareButton iconStyle={iconStyle} {...props} />
+      )}
       <RoomMicButton iconStyle={iconStyle} localStream={localStream} />
-      <RoomCameraButton iconStyle={iconStyle} localStream={localStream} />
+      {!isJoinedWithAudioOnly && (
+        <RoomCameraButton iconStyle={iconStyle} localStream={localStream} />
+      )}
       <RoomCloseButton iconStyle={{ ...iconStyle, color: colors.error }} />
       <RoomResizeButton
         iconStyle={iconStyle}

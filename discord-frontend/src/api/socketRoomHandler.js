@@ -6,6 +6,7 @@ import {
   setLocalStream,
   setRemoteStreams,
   setScreenSharingStream,
+  setIsJoinedWithAudioOnly,
 } from "../store/actions/roomActions";
 import * as socketConnection from "./socketConnection";
 import * as webRTCHandler from "./webRTCHandler";
@@ -13,6 +14,8 @@ import * as webRTCHandler from "./webRTCHandler";
 export const createNewRoom = () => {
   const onLocalStreamCreation = () => {
     store.dispatch(setOpenRoom(true, true));
+    const audioOnly = store.getState().room.audioOnly;
+    store.dispatch(setIsJoinedWithAudioOnly(audioOnly));
     socketConnection.createNewRoom();
   };
 
@@ -47,6 +50,8 @@ export const joinRoom = (roomId) => {
   const onLocalStreamCreation = () => {
     store.dispatch(setRoomDetails({ roomId }));
     store.dispatch(setOpenRoom(false, true));
+    const audioOnly = store.getState().room.audioOnly;
+    store.dispatch(setIsJoinedWithAudioOnly(audioOnly));
     socketConnection.joinRoom({ roomId });
   };
   const isAudioOnly = store.getState().room.audioOnly;
