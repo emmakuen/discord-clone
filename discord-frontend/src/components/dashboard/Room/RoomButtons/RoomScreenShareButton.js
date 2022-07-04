@@ -35,7 +35,7 @@ const RoomScreenShareButton = ({
       }
     } else {
       webRTCHandler.switchOutgoingTracks(localStream);
-      screenSharingStream.getTrack().forEach((track) => track.stop());
+      screenSharingStream.getTracks().forEach((track) => track.stop());
       setScreenSharingStream(null);
     }
   };
