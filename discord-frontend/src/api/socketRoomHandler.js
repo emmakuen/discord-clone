@@ -35,12 +35,19 @@ export const updateActiveRooms = (data) => {
   // render room if creator is friend of the user
   const friends = store.getState().friends.friends;
   const rooms = [];
+
+  const userId = store.getState().auth.userDetails?.id;
   activeRooms.forEach((room) => {
-    friends.forEach((friend) => {
-      if (friend.id === room.roomCreator.userId) {
-        rooms.push({ ...room, creatorUsername: friend.username });
-      }
-    });
+    const isRoomCreatedByMe = room.roomCreator.userId === userId;
+    if (isRoomCreatedByMe) {
+      rooms.push({ ...room, creatorUsername: "Me" });
+    } else {
+      friends.forEach((friend) => {
+        if (friend.id === room.roomCreator.userId) {
+          rooms.push({ ...room, creatorUsername: friend.username });
+        }
+      });
+    }
   });
 
   store.dispatch(setActiveRooms(rooms));

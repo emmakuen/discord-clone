@@ -45,7 +45,7 @@ const Sidebar = ({ activeRooms, isUserInRoom }) => {
         <Groups style={{ fontSize: "2.4rem" }} />
       </HalfRoundedIconButton>
       <Separator />
-      <RoundedIconButton onClick={createNewRoomHandler}>
+      <RoundedIconButton onClick={createNewRoomHandler} disabled={isUserInRoom}>
         <Add
           style={{
             fontSize: "2.4rem",
