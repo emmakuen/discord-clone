@@ -1,6 +1,7 @@
 const colors = Object.freeze({
   primary: "#5865f2",
   secondary: "#3ba55d",
+  roomColor: "#f47b68",
   blackGray: "#202225",
   darkGray3: "#2b2d32",
   darkGray2: "#2f3136",

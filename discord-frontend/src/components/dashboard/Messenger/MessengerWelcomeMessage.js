@@ -22,7 +22,7 @@ const MessengerWelcomeMessage = () => {
           letterSpacing: "0.2px",
           backgroundColor: colors.darkGray3,
           padding: "0.6rem 1.2rem",
-          borderRadius: "50px",
+          borderRadius: "1.2rem",
         }}
       >
         Select a chat to start messaging

@@ -25,7 +25,7 @@ const Separator = styled("div")({
 });
 
 const renderRoomButtons = (activeRooms, isUserInRoom) => {
-  return activeRooms.map((room) => (
+  return activeRooms.map((room, idx) => (
     <SidebarActiveRoomButton
       key={room.roomId}
       {...room}
@@ -38,6 +38,8 @@ const Sidebar = ({ activeRooms, isUserInRoom }) => {
   const createNewRoomHandler = () => {
     roomHandler.createNewRoom();
   };
+
+  console.log(activeRooms);
 
   return (
     <MainContainer>
