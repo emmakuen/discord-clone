@@ -1,8 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
+  "short_name": "Discord Clone",
+  "name": "Discord Clone | Your Place to Talk and Hang Out",
+  "icons": [{
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
@@ -19,7 +18,8 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "browser",
+  "theme_color": "#5865f2",
+  "background_color": "#36393f",
+  "description": "Discord Clone is the easiest way to talk over voice, video, and text. Use Discord Clone and stay close with your friends and communities."
 }
