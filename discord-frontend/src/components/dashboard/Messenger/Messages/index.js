@@ -10,6 +10,7 @@ const MainContainer = styled("div")({
   overflow: "auto",
   display: "flex",
   flexDirection: "column",
+  height: "84vh",
 });
 
 const formatDate = (date, format = "dd/mm/yy") => {
@@ -25,6 +26,10 @@ const formatDate = (date, format = "dd/mm/yy") => {
 };
 
 const Messages = ({ chosenChatDetails, messages }) => {
+  const messagesEndRef = React.useRef();
+  React.useEffect(() => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  });
   return (
     <MainContainer>
       <MessagesHeader username={chosenChatDetails?.username} />
@@ -49,6 +54,7 @@ const Messages = ({ chosenChatDetails, messages }) => {
           </div>
         );
       })}
+      <div ref={messagesEndRef} />
     </MainContainer>
   );
 };

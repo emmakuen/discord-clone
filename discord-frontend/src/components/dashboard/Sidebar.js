@@ -39,8 +39,6 @@ const Sidebar = ({ activeRooms, isUserInRoom }) => {
     roomHandler.createNewRoom();
   };
 
-  console.log(activeRooms);
-
   return (
     <MainContainer>
       <HalfRoundedIconButton>
